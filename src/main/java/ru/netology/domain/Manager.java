@@ -6,19 +6,19 @@ import java.util.Arrays;
 
 @AllArgsConstructor
 public class Manager {
-    TicketRepo list;
+    private TicketRepo list;
 
     public Ticket[] findAll(String from, String to) {
         Ticket[] newList = new Ticket[0];
         for (Ticket ticket : list.getAll()) {
-            if (ticket.arrivalAirport.equals(to) && ticket.departureAirport.equals(from)) {
+            if (ticket.getArrivalAirport().equals(to) && ticket.getDepartureAirport().equals(from)) {
                 Ticket[] tmp = new Ticket[newList.length + 1];
                 System.arraycopy(newList, 0, tmp, 0, newList.length);
                 tmp[tmp.length - 1] = ticket;
                 newList = tmp;
-                Arrays.sort(newList);
             }
         }
+        Arrays.sort(newList);
         return newList;
     }
 }

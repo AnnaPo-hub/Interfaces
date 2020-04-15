@@ -1,17 +1,13 @@
 package ru.netology.domain;
 
-import lombok.Data;
+import java.util.NoSuchElementException;
 
-@Data
 public class TicketRepo {
-     Ticket [] list = {new Ticket(1, 1200,"PDL", "LED", 5.20),
-    new Ticket(2, 1000, "TLV", "LED", 3.15),
-    new Ticket(3, 850, "TLV", "LED", 5.15),
-    new Ticket(4, 500, "TLV", "LED", 12.15),
-    new Ticket(5, 700, "VKO", "LED", 1.00)};
+    Ticket[] list;
 
-
-
+    public TicketRepo(Ticket[] list) {
+        this.list = list;
+    }
 
     Ticket[] getAll() {
         return list;
@@ -44,12 +40,11 @@ public class TicketRepo {
                 if (item.getId() != id) {
                     newArray[index] = item;
                     index++;
+                } else {
+                    throw new NoSuchElementException();
                 }
             }
             list = newArray;
         }
     }
-
-
-
 }

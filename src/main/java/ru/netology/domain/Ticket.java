@@ -6,11 +6,11 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class Ticket implements Comparable<Ticket> {
-    int id;
-    int price;
-    String arrivalAirport;
-    String departureAirport;
-    double travelTime;
+    private int id;
+    private int price;
+    private String arrivalAirport;
+    private String departureAirport;
+    private int travelTime;
 
     @Override
     public int compareTo(Ticket o) {
