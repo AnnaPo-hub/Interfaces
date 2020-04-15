@@ -1,4 +1,6 @@
-package ru.netology.domain;
+package ru.netology.repository;
+
+import ru.netology.domain.Ticket;
 
 import java.util.NoSuchElementException;
 
@@ -9,7 +11,7 @@ public class TicketRepo {
         this.list = list;
     }
 
-    Ticket[] getAll() {
+    public Ticket[] getAll() {
         return list;
     }
 

@@ -1,6 +1,8 @@
-package ru.netology.domain;
+package ru.netology.manager;
 
 import lombok.AllArgsConstructor;
+import ru.netology.domain.Ticket;
+import ru.netology.repository.TicketRepo;
 
 import java.util.Arrays;
 
