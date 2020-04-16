@@ -5,12 +5,13 @@ import ru.netology.domain.Ticket;
 import ru.netology.repository.TicketRepo;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 @AllArgsConstructor
 public class Manager {
     private TicketRepo list;
 
-    public Ticket[] findAll(String from, String to, Ticket.TicketComparator comparator) {
+    public Ticket[] findAll(String from, String to, Comparator<Ticket> comparator) {
         Ticket[] newList = new Ticket[0];
         for (Ticket ticket : list.getAll()) {
             if (ticket.getArrivalAirport().equals(to) && ticket.getDepartureAirport().equals(from)) {
@@ -25,7 +26,3 @@ public class Manager {
         return newList;
     }
 }
-
-
-
-

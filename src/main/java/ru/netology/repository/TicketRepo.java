@@ -27,27 +27,28 @@ public class TicketRepo {
         list = addedTicket;
     }
 
-    void removeById(int id) {
-        boolean b = false;
+    Ticket findById (int id) {
         for (Ticket item : list) {
             if (item.getId() == id) {
-                b = true;
-                break;
+                return item;
             }
         }
-        if (b) {
+        return null;
+    }
+
+    void removeById(int id) {
+        Ticket ticketById = findById(id);
+        if (ticketById == null) {
+            throw new NoSuchElementException();
+        } else {
             int length = list.length - 1;
             Ticket[] newArray = new Ticket[length];
-            int index = 0;
-            for (Ticket item : list) {
-                if (item.getId() != id) {
-                    newArray[index] = item;
-                    index++;
+            int count = 0;
+            for (Ticket ticket : list) {
+                if (ticket != ticketById) {
+                    newArray[count++] = ticket;
                 }
             }
-            list = newArray;
-        }else{
-            throw new NoSuchElementException();
         }
     }
 }
